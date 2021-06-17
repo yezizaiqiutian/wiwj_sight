@@ -2,7 +2,6 @@ package io.rong.sight.player;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +12,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
-import com.bumptech.glide.Glide;
-
-import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Objects;
 
@@ -24,6 +19,7 @@ import io.rong.common.FileUtils;
 import io.rong.common.RLog;
 import io.rong.imkit.IMCenter;
 import io.rong.imkit.activity.RongBaseNoActionbarActivity;
+import io.rong.imkit.config.RongConfigCenter;
 import io.rong.imkit.event.actionevent.BaseMessageEvent;
 import io.rong.imkit.event.actionevent.DeleteEvent;
 import io.rong.imkit.event.actionevent.DownloadEvent;
@@ -147,7 +143,7 @@ public class SightPlayerActivity extends RongBaseNoActionbarActivity implements 
         rlSightDownload.setVisibility(View.VISIBLE);
         mThumbImageView = findViewById(R.id.rc_sight_thumb);
         if (mSightMessage.getThumbUri() != null && mSightMessage.getThumbUri().getPath() != null) {
-            Glide.with(this).load(new File(mSightMessage.getThumbUri().getPath())).into(mThumbImageView);
+            RongConfigCenter.featureConfig().getKitImageEngine().loadImage(this, mSightMessage.getThumbUri().getPath(), mThumbImageView);
         }
         mSightDownloadProgress = findViewById(R.id.rc_sight_download_progress);
         mSightDownloadProgress.setVisibility(View.VISIBLE);
