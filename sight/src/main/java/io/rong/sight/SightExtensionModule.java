@@ -7,13 +7,10 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.rong.imkit.IMCenter;
-    import io.rong.imkit.config.RongConfigCenter;
 import io.rong.imkit.conversation.extension.IExtensionModule;
 import io.rong.imkit.conversation.extension.RongExtension;
 import io.rong.imkit.conversation.extension.component.emoticon.IEmoticonTab;
 import io.rong.imkit.conversation.extension.component.plugin.IPluginModule;
-import io.rong.imkit.conversation.messgelist.provider.SightMessageItemProvider;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
 import io.rong.imlib.model.Message;
@@ -24,7 +21,7 @@ public class SightExtensionModule implements IExtensionModule {
     @Override
     public void onInit(Context context, String appKey) {
         RongIMClient.getInstance().registerMessageType(SightMessage.class);
-        RongConfigCenter.conversationConfig().addMessageProvider(new SightMessageItemProvider());
+//        RongConfigCenter.conversationConfig().addMessageProvider(new SightMessageItemProvider());
     }
 
     @Override
