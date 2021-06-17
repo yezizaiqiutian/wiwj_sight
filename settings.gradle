@@ -1,0 +1,2 @@
+include ':app', ':sight'
+rootProject.name = "wiwj_sight"
